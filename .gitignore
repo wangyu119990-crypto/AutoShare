@@ -38,6 +38,7 @@ data.py
 data_stock.py
 data_github.py
 *.txt
+!requirements.txt
 
 # --- 忽略多余的文档文件 (只保留 MASTER_WORKFLOW.md) ---
 AUTO_WORKFLOW.md
