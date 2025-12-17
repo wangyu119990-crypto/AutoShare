@@ -1,0 +1,70 @@
+# --- 忽略虚拟环境 ---
+.venv/
+venv/
+ENV/
+
+# --- 忽略 Python 缓存文件 ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- 忽略生成的结果/输出文件夹 ---
+output/
+output_cn/
+output_global/
+output_images/
+stock_output/
+
+# --- 忽略生成的图片文件 (但保留 assets/ 模板文件夹) ---
+*.png
+!assets/*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+
+# --- 忽略生成的具体文件 ---
+*.html
+!templates/*.html
+!article_template.html
+!cover_template.html
+temp_*.html
+debug_*.html
+
+# --- 忽略生成的数据文件 ---
+*.json
+data.py
+data_stock.py
+data_github.py
+*.txt
+
+# --- 忽略多余的文档文件 (只保留 MASTER_WORKFLOW.md) ---
+AUTO_WORKFLOW.md
+GITHUB_FINAL_REPORT.md
+GITHUB_SIZE_ANALYSIS.md
+GITHUB_SIZE_CHECK.md
+GITHUB_SIZE_SOLUTION.md
+GITHUB_WORKFLOW.md
+HANDOVER_CONTEXT.md
+PH_RULES.md
+PH_SIZE_CHECK_REPORT.md
+PROJECT_MEMO_*.md
+SIZE_CHANGE_ANALYSIS.md
+SIZE_CHANGE_SUMMARY.md
+SIZE_CHECK_REPORT.md
+STOCK_DATA_SECURITY.md
+
+# --- 忽略系统文件 ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# --- 忽略 IDE/编辑器配置 ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+

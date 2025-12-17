@@ -1,0 +1,26 @@
+# --- 忽略虚拟环境 ---
+.venv/
+venv/
+ENV/
+
+# --- 忽略 Python 缓存文件 ---
+__pycache__/
+*.pyc
+
+# --- 忽略生成的结果/输出文件夹 ---
+output/
+output_cn/
+output_global/
+output_images/
+
+# --- 忽略生成的具体文件 (根据你的截图) ---
+*.html
+!templates/*.html  # 这是一个例外：保留 templates 文件夹里的 html
+cover_final.png
+
+# --- 忽略系统文件 ---
+.DS_Store
+
+# --- 数据文件 (看情况决定是否忽略) ---
+# 如果 stocks_data.csv 包含敏感数据或者每天都变，建议忽略
+# stocks_data.csv

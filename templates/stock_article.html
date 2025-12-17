@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            font-family: "PingFang SC", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+        }
+
+        .page {
+            width: 1245px;
+            height: 1660px;
+            background-color: #F9F9F9;
+            padding: 115px 92px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px; 
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 35px;
+        }
+
+        /* ✅ 修改点：高度不再写死，由 Python 传进来的 layout.spacer 决定 */
+        .section-spacer {
+            width: 100%;
+            height: {{ layout.spacer }}px;
+            flex-shrink: 0;
+        }
+
+        .emoji-title {
+            font-size: 115px;
+            line-height: 1.1;
+            margin-bottom: 17px;
+        }
+
+        .color-bar {
+            width: 115px;
+            height: 23px;
+            border-radius: 5px;
+        }
+
+        .bg-red { background-color: #FF4D44; }
+        .bg-green { background-color: #7DC067; }
+
+        .stock-list {
+            display: flex;
+            flex-direction: column;
+            /* ✅ 修改点：间距不再写死，由 layout.gap 决定 */
+            gap: {{ layout.gap }}px;
+        }
+
+        .stock-item {
+            font-size: 39px;
+            color: #333333;
+            line-height: 1.5;
+            font-weight: 500;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            margin: 0 14px;
+            font-family: "Apple Color Emoji";
+            font-size: 35px;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 46px;
+            right: 58px;
+            font-size: 28px;
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+
+{% for page in pages %}
+<div class="page">
+    {% for block in page.content %}
+        
+        {% if block.type == 'header' %}
+        <div class="section-header">
+            <div class="emoji-title">{{ block.emoji }}</div>
+            <div class="color-bar {{ block.color_class }}"></div>
+        </div>
+        {% endif %}
+
+        {% if block.type == 'spacer' %}
+        <div class="section-spacer"></div>
+        {% endif %}
+
+        {% if block.type == 'list' %}
+        <div class="stock-list">
+            {% for item in block.rows %}
+            <div class="stock-item">
+                {{ item.text.replace("➡️", "<span class='arrow-icon'>➡️</span>") }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    {% endfor %}
+    <div class="page-number">{{ loop.index }}</div>
+</div>
+{% endfor %}
+
+</body>
+</html>

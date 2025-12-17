@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1245px;
+            height: 1660px;
+            background-image: url('assets/cover_bg.png');
+            background-size: cover;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* --- 你的日期区域 (新修改版) --- */
+        .date-area {
+            position: absolute;
+            top: 460px; 
+            left: 105px;
+            font-size: 60px;
+            color: rgba(255, 97, 85, 1);
+            font-weight: 600; /* Semi-Bold */
+        }
+
+        /* --- 你的金句区域 (之前定好的版) --- */
+        .quote-text {
+            position: absolute;
+            top: 566px;
+            left: 105px;
+            right: 116px; /* 限制右边距，防止文字跑出去 */
+            
+            font-family: "PingFang SC", sans-serif;
+            font-weight: 400; /* Regular - 不要太粗 */
+            font-size: 30px; /* 30号字 */
+            line-height: 1.45;
+            color: rgba(255, 97, 85, 1);
+            
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 动态替换区域 -->
+    <div class="date-area">{{ date_text }}</div>
+    <div class="quote-text">{{ main_text }}</div>
+</body>
+</html>

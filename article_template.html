@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1245px;
+            height: 1660px;
+            background-color: #FFFFFF; 
+            font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+            overflow: hidden; 
+        }
+
+        .container {
+            width: 1081px; 
+            margin: 0 auto; 
+            box-sizing: border-box;
+        }
+
+        /* 顶部边距控制 - 适配 1245×1660 */
+        .page-1 { margin-top: 225px; }
+        .page-others { margin-top: 105px; }
+
+        .product-block {
+            margin-bottom: 0; 
+            padding-bottom: 14px;
+        }
+
+        .content {
+            text-align: left; 
+            line-height: 1.6; 
+            overflow-wrap: break-word; 
+        }
+
+        .content h2 {
+            font-size: 56px; 
+            font-weight: 800; 
+            margin-top: 42px; 
+            margin-bottom: 28px;
+            line-height: 1.2;
+            color: #333333; 
+            border-left: 8px solid #333333; 
+            padding-left: 21px;
+        }
+        
+        .product-block:first-child h2 { margin-top: 0; }
+
+        .content strong {
+            color: #444444; 
+            font-weight: 700;
+            font-size: 34px; 
+            display: block; 
+            margin-bottom: 21px;
+        }
+
+        /* --- 【关键修改】分类信息框 --- */
+        .content blockquote {
+            /* 布局：使用 Flex 强行垂直居中 */
+            display: flex;
+            align-items: center;
+            
+            margin: 21px 0 42px 0;
+            padding: 17px 25px; /* 上下左右内边距 */
+            background: #F9F9F9; 
+            border-radius: 11px;
+            
+            font-size: 25px; 
+            color: #666666; 
+            font-weight: 500;
+            border-left: none; 
+            
+            /* 确保高度足够容纳文字 */
+            min-height: 42px;
+        }
+
+        /* --- 【关键修改】修复 Markdown 自动生成的 p 标签 --- */
+        /* 这一步最重要：把 blockquote 里面的 p 标签边距去掉 */
+        .content blockquote p {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        /* --- 简介正文 --- */
+        .content p {
+            color: #555555; 
+            font-size: 29px; 
+            margin-top: 0; 
+            margin-bottom: 28px;
+            font-weight: 400; 
+            text-align: justify; 
+        }
+        
+        hr {
+            border: 0;
+            border-top: 3px dashed #E0E0E0;
+            margin: 70px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container {% if is_first_page %}page-1{% else %}page-others{% endif %}">
+        <div class="content">
+            {{ content_html }}
+        </div>
+    </div>
+</body>
+</html>
